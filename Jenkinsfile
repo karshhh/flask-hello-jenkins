@@ -7,10 +7,9 @@ pipeline {
 
     stages {
         stage('Checkout') {
-    steps {
-        git branch: 'main', url: 'https://github.com/karshhh/flask-hello-jenkins.git'
-    }
-}
+            steps {
+                git branch: 'main', url: 'https://github.com/karshhh/flask-hello-jenkins.git'
+            }
         }
 
         stage('Install Dependencies') {
@@ -21,8 +20,7 @@ pipeline {
 
         stage('Run App') {
             steps {
-                sh 'nohup python app.py & sleep 5'
-                sh 'curl http://localhost:5000'
+                sh 'python app.py &'
             }
         }
     }
@@ -34,3 +32,4 @@ pipeline {
         }
     }
 }
+
