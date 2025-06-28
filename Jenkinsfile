@@ -14,8 +14,7 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                sh 'pip install --user -r requirements.txt'
-
+                sh 'pip install --no-cache-dir -r requirements.txt'
             }
         }
 
@@ -33,4 +32,5 @@ pipeline {
         }
     }
 }
+
 
